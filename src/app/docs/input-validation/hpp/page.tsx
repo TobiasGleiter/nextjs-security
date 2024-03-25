@@ -1,11 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 
 export default function Page() {
-  const [param, setParam] = useState<string>("");
+  const [param, setParam] = useState<string>("like");
   const [modifiedUrl, setModifiedUrl] = useState<string>("");
+  const searchParams = useSearchParams();
+  const firstParam = searchParams.get("pina");
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -32,6 +35,7 @@ export default function Page() {
         </div>
         <div className="flex flex-col gap-2">
           <h2 className="text-xl font-semibold">Client Side</h2>
+          <Link href="/docs/input-validation/hpp?pina=dislike">I like it!</Link>
           <form onSubmit={handleSubmit} className="flex gap-2 items-center">
             <label htmlFor="param">Add search Param:</label>
             <input
@@ -48,6 +52,7 @@ export default function Page() {
               Submit
             </button>
           </form>
+          <p>I {firstParam} Pina Coladas!</p>
           {modifiedUrl && (
             <div>
               <p>Modified URL:</p>

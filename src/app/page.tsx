@@ -11,14 +11,12 @@ export default function Home() {
       </div>
       <div className="grid md:grid-cols-3">
         <div className="flex flex-col gap-2 bg-zinc-50 p-6 rounded-md shadow">
-          <Link href="/docs/input-validation/hpp">
+          <Link href="/docs/input-validation/hpp?pina=like">
             <h2 className="text-lg font-semibold hover:underline">
               🚀 HTTP Parameter Pollution
             </h2>
           </Link>
-          <p className="text-zinc-700">
-            HTTP Parameter Pollution is adding search query strings.
-          </p>
+          <p className="text-zinc-700">Add or Duplicate Parameter Values</p>
         </div>
       </div>
     </main>
