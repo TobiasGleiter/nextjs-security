@@ -16,7 +16,9 @@ export default function Home() {
               🚀 HTTP Parameter Pollution
             </h2>
           </Link>
-          <p className="text-zinc-700">Add or Duplicate Parameter Values</p>
+          <p className="text-zinc-700">
+            Attacker injects duplicate HTTP GET/POST parameters
+          </p>
         </div>
       </div>
     </main>
