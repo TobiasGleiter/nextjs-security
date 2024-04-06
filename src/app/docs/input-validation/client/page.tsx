@@ -1,4 +1,6 @@
+import { UserForm } from "@/components/user/user.form";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default function ClientSideInputValidationPage() {
   return (
@@ -9,6 +11,9 @@ export default function ClientSideInputValidationPage() {
       <div className="flex flex-col gap-2">
         <h1 className="text-4xl font-bold">🚀 Client Side Input Validation</h1>
       </div>
+      <Suspense fallback="Loading...">
+        <UserForm />
+      </Suspense>
     </main>
   );
 }
