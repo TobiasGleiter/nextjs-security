@@ -6,18 +6,18 @@ export default function Home() {
       <div className="flex flex-col gap-2">
         <h1 className="text-4xl font-bold">🔒 IT-Security in Next.js</h1>
         <p className="text-lg text-zinc-700">
-          Using the OWASP ASVS to build and validate
+          Using the OWASP ASVS to build and validate.
         </p>
       </div>
       <div className="grid md:grid-cols-3">
         <div className="flex flex-col gap-2 bg-zinc-50 p-6 rounded-md shadow">
-          <Link href="/docs/input-validation/hpp?pina=like">
+          <Link href="/docs/input-validation/client">
             <h2 className="text-lg font-semibold hover:underline">
-              🚀 HTTP Parameter Pollution
+              🚀 Client Side Input Validation
             </h2>
           </Link>
           <p className="text-zinc-700">
-            Attacker injects duplicate HTTP GET/POST parameters
+            Using ZOD to validate Forms on client side
           </p>
         </div>
       </div>
