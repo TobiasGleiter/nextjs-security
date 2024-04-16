@@ -6,16 +6,18 @@ export async function POST(req: Request, _context: any) {
   const userAuthenticationHandler = new UserAuthenticationHandler();
   const exampleHandler = new ExampleHandler();
 
+  // Example handler will cancel the the requests because it is set to false!
   userAuthenticationHandler.setNext(exampleHandler);
 
   try {
     const json = await req.json();
+
     await userAuthenticationHandler.handle(json);
 
     // After this comment, all is validated and secure
 
     return NextResponse.json({ result: "All good!" }, { status: 201 });
   } catch (error) {
-    return NextResponse.json({ error: error }, { status: 403 });
+    return NextResponse.json({ error }, { status: 403 });
   }
 }
