@@ -10,8 +10,9 @@ export async function POST(req: Request, _context: any) {
 
   try {
     const json = await req.json();
-    // After this comment, all is validated and secure
     await userAuthenticationHandler.handle(json);
+
+    // After this comment, all is validated and secure
 
     return NextResponse.json({ result: "All good!" }, { status: 201 });
   } catch (error) {
