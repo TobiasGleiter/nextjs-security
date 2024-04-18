@@ -4,7 +4,7 @@ import { AbstractRequestHandler } from "./request.handler";
 export class ExampleHandler extends AbstractRequestHandler {
   public async handle(requestJson: RequestJson): Promise<Error | null> {
     // check something
-    const isExampleOk = false;
+    const isExampleOk = true;
     if (!isExampleOk) {
       // if not return error
       throw new Error("Forbidden");
