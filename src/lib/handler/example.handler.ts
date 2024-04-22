@@ -1,8 +1,7 @@
-import { RequestJson } from "@/types/request.types";
 import { AbstractRequestHandler } from "./request.handler";
 
 export class ExampleHandler extends AbstractRequestHandler {
-  public async handle(requestJson: RequestJson): Promise<Error | null> {
+  public async handle(request: Request, _context: any): Promise<Error | null> {
     // check something
     const isExampleOk = true;
     if (!isExampleOk) {
@@ -10,6 +9,6 @@ export class ExampleHandler extends AbstractRequestHandler {
       throw new Error("Forbidden");
     }
     // if ok pass it to the next handler
-    return super.handle(requestJson);
+    return super.handle(request, _context);
   }
 }

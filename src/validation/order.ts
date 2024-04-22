@@ -37,7 +37,7 @@ export const orderSchema = z.object({
 //     },
 //     "items": [
 //         {
-//             "product_id": "ABC123",
+//             "productId": "ID1234",
 //             "quantity": 2
 //         }
 //     ]

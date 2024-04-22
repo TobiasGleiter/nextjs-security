@@ -12,9 +12,8 @@ export async function POST(req: Request, _context: any) {
   userAuthenticationHandler.setNext(orderSchemaHandler).setNext(exampleHandler);
 
   try {
-    const json = await req.json();
-
-    await userAuthenticationHandler.handle(json);
+    const requestClone = req.clone();
+    await userAuthenticationHandler.handle(requestClone, _context);
 
     // After this comment, all is validated and secure
 

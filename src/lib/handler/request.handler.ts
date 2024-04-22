@@ -1,8 +1,10 @@
-import { RequestJson } from "@/types/request.types";
+type Context = {
+  params: any;
+};
 
 interface Handler {
   setNext(_handler: Handler): Handler;
-  handle(_requestJson: RequestJson): Promise<Error | null>;
+  handle(request: Request, context: Context): Promise<Error | null>;
 }
 
 export abstract class AbstractRequestHandler implements Handler {
@@ -13,9 +15,12 @@ export abstract class AbstractRequestHandler implements Handler {
     return handler;
   }
 
-  public async handle(requestJson: RequestJson): Promise<Error | null> {
+  public async handle(
+    request: Request,
+    context: Context,
+  ): Promise<Error | null> {
     if (this.nextHandler) {
-      return await this.nextHandler.handle(requestJson);
+      return await this.nextHandler.handle(request, context);
     }
 
     return null;
