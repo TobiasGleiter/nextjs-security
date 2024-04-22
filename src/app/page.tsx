@@ -1,4 +1,23 @@
-import Link from "next/link";
+import Card from "@/components/ui/card";
+import { Key } from "react";
+
+const items = [
+  {
+    headline: "🚀 Handle API-Requests with the Chain of Responsibility",
+    description: "Use the Chain of Responsibility to add steps to the chain.",
+    href: "/docs/chain-of-responsibilities",
+  },
+  {
+    headline: "🔒 HTTP-Header Whitelisting",
+    description: "OWASP ASVS #5.1.4",
+    href: "/docs/headers",
+  },
+  {
+    headline: "🍪 Cookie Whitelisting",
+    description: "OWASP ASVS #5.1.4",
+    href: "/docs/cookies",
+  },
+];
 
 export default function Home() {
   return (
@@ -9,17 +28,15 @@ export default function Home() {
           Using the OWASP ASVS to build and validate.
         </p>
       </div>
-      <div className="grid md:grid-cols-3">
-        <div className="flex flex-col gap-2 bg-zinc-50 p-6 rounded-md shadow">
-          <Link href="/docs/input-validation/client">
-            <h2 className="text-lg font-semibold hover:underline">
-              🚀 Client Side Input Validation
-            </h2>
-          </Link>
-          <p className="text-zinc-700">
-            Using ZOD to validate Forms on client side
-          </p>
-        </div>
+      <div className="grid md:grid-cols-3 gap-4">
+        {items.map((item, key: Key) => (
+          <Card
+            key={key}
+            headline={item.headline}
+            description={item.description}
+            href={item.href}
+          />
+        ))}
       </div>
     </main>
   );
