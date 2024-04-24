@@ -6,3 +6,7 @@ export async function POST(request: Request) {
 
   return NextResponse.json({ ok: "I am secure!" });
 }
+
+export async function GET() {
+  return NextResponse.json("Forbidden", { status: 403 });
+}
