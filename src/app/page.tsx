@@ -4,7 +4,7 @@ import { Key } from "react";
 const items = [
   {
     headline: "🚀 Handle API-Requests with the Chain of Responsibility",
-    description: "Use the Chain of Responsibility to add steps to the chain.",
+    description: "Use the Chain of Responsibility to add seucrity steps.",
     href: "/docs/chain-of-responsibilities",
   },
   {
@@ -16,6 +16,10 @@ const items = [
     headline: "🍪 Cookie Whitelisting",
     description: "OWASP ASVS #5.1.4",
     href: "/docs/cookies",
+  },
+  {
+    headline: "🤬 Custom Exceptions",
+    href: "/docs/custom-exceptions",
   },
 ];
 
