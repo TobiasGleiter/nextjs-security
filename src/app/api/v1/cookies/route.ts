@@ -6,6 +6,7 @@ export async function GET(request: Request) {
   try {
     const cookieStore = cookies();
     const cookieList = cookieStore.getAll();
+
     cookieList.forEach((value) => {
       if (!isAllowedCookieName.safeParse(value.name).success)
         throw new Error("Forbidden");
@@ -17,16 +18,4 @@ export async function GET(request: Request) {
   }
 }
 
-const devAuthCookies = ["next-auth.session-token", "next-auth.callback-url"];
-const prodAuthCookies = [
-  "__Secure-next-auth.session-token",
-  "__Secure-next-auth.callback-url",
-];
-
-const allowedCookies =
-  process.env.NODE_ENV !== "production" ? devAuthCookies : prodAuthCookies;
-
-export const isAllowedCookieName = z.enum([
-  "accept-cookies",
-  ...allowedCookies,
-]);
+const isAllowedCookieName = z.enum(["accept-cookies"]);
