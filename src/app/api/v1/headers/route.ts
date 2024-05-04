@@ -27,7 +27,6 @@ export const isAllowedHeaderKey = z.enum([
   "accept-encoding",
   "connection",
   "content-length",
-  "content-type",
   "user-agent",
   "x-forwarded-for",
   "x-forwarded-host",
