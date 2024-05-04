@@ -1,5 +1,5 @@
-import { paramsSchema } from "@/validation/slug.api";
 import { NextResponse } from "next/server";
+import { z } from "zod";
 
 interface ContextProps {
   params: { slug: string };
@@ -18,3 +18,9 @@ export async function POST(_request: Request, context: ContextProps) {
     return NextResponse.json("Forbidden", { status: 403 });
   }
 }
+
+export const paramsSchema = z.object({
+  params: z.object({
+    slug: z.string(),
+  }),
+});
