@@ -2,7 +2,7 @@ import Link from "next/link";
 
 interface CardProps {
   headline: string;
-  description: string;
+  description?: string;
   href: string;
 }
 
@@ -12,7 +12,7 @@ export default function Card({ headline, description, href }: CardProps) {
       <Link href={href}>
         <h2 className="text-lg font-semibold hover:underline">{headline}</h2>
       </Link>
-      <p className="text-zinc-700">{description}</p>
+      {description && <p className="text-zinc-700">{description}</p>}
     </div>
   );
 }
